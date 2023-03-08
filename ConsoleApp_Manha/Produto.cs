@@ -15,8 +15,8 @@ namespace ConsoleApp_Manha
         public Produto(int id, string descricao, decimal valor)
         {
             this.id = id;
-            Descricao = descricao;
-            Valor = valor;
+            this.Descricao = descricao;
+            this.Valor = valor;
         }
     }
 }
