@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<WebApp_manha.Entidades.Produtos>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -7,4 +9,9 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<h1>Robux free 2023 grátis cartão de crédito</h1>
+<h1>Salve</h1>
+
+@foreach (var produto in Model)
+{
+    <p>@produto.Descricao - R$ @produto.Valor</p>
+}

@@ -1,97 +1,73 @@
-﻿<div class="card">
-    <div class="card-header">
+﻿@model List<WebApp_manha.Models.ClienteViewModel>
+
+<div class="card">
+    <div class="card-header"
     <h2>Lista Clientes</h2>
 </div>
     <div class="card-body">
-
         <div class="row">
             <div class="col-2">
                 <a href="/Clientes/Cadastro" class="btn btn-success">
                     Novo Cliente
                 </a>
+
             </div>
 
             <div class="col-3">
-                    <select name="tipoBusca" class="form-control">
-                        <option value="0">Todos os campos</option>
-                        <option value="id">Busca por ID</option>
-                        <option value="nome">Busca por nome</option>
-                        <option value="telefone">Busca por telefone</option>
-                    </select>
+                <select name="tipoBusca" class="form-control">
+                    <option value="0">Todos os campos</option>
+                    <option value="id">Busca por Id</option>
+                    <option value="nome">Busca por Nome</option>
+                    <option value="Telefone">Busca por Telefone</option>
+                </select>
             </div>
 
             <div class="col-4">
-                <input class="form-control" type="text" name="pesquisa"/>
+                <input class="form-control" type="text" name="pesquisa" />
             </div>
 
             <div class="col-3">
                 <button class="btn btn-info" type="submit">
-                    Pesquisar
+                    pesquisar
                 </button>
-            </div>
-        </div>
 
+            </div>
+
+
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
-                <th>Codigo</th>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th></th>
-            </tr>
+                    <th>Codigo</th>
+                    <th>nome</th>
+                    <th>Telefone</th>
+                    <th></th>
+                </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Yan</td>
-                    <td>(16)99223-3365</td>
-                    <td>
-                        <a href="/Clientes/Editar/1" class="btn btn-warning">
-                            Editar
-                        </a>
-                        <a href="/Clientes/Compras/1" class="btn btn-primary">
-                            Todas as compras
-                        </a>
-                        <a href="/Clientes/Excluir/1" class="btn btn-danger">
-                            Excluir
-                        </a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>Yan M.</td>
-                    <td>(16)99223-3365</td>
-                    <td>
-                        <a href="/Clientes/Editar/2" class="btn btn-warning">
-                            Editar
-                        </a>
-                        <a href="/Clientes/Compras/2" class="btn btn-primary">
-                            Todas as compras
-                        </a>
-                        <a href="/Clientes/Excluir/2" class="btn btn-danger">
-                            Excluir
-                        </a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>Yan da Rocha</td>
-                    <td>(16)99223-3365</td>
-                    <td>
-                        <a href="/Clientes/Editar/3" class="btn btn-warning">
-                            Editar
-                        </a>
-                        <a href="/Clientes/Compras/3" class="btn  btn-primary">
-                            Todas as compras
-                        </a>
-                        <a href="/Clientes/Excluir/3" class="btn  btn-danger">
-                            Excluir
-                        </a>
-                    </td>
-                </tr>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nome</td>
+                        <td>@item.Telefone</td>
+                        <td>
+                         
+                            <a href="/Clientes/Editar/@item.Id" class="btn btn-warning">
+                                Editar
+                            </a>
+                            <a href="/Clientes/Compras/@item.Id" class="btn btn-primary">
+                                Todas as Compras
+                            </a>
+                            <a href="/Clientes/Excluir/@item.Id" class="btn btn-danger">
+                                Excluir
+                            </a>
+                        </td>
+                    </tr>
+                }
+                
+              
 
 
             </tbody>
